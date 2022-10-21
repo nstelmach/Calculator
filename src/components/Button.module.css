@@ -1,0 +1,36 @@
+button {
+  position: relative;
+  height: 65px;
+  width: 80px;
+  color: white;
+  outline: 1px solid black;
+  border: none;
+  background: #1e265d;
+  font-size: 20px;
+  cursor: default;
+}
+
+button:hover {
+  color: black;
+  outline: 0.05em solid grey;
+  z-index: 3;
+}
+
+.bigButton {
+  width: 160px;
+}
+
+.clear {
+  background: #ac3939;
+}
+
+.operator {
+  background: #323c7e;
+}
+
+.equals {
+  background: #171c37;
+  position: absolute;
+  height: 130px;
+  bottom: 5px;
+}
