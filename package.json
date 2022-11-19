@@ -1,7 +1,7 @@
 {
   "name": "calculator",
   "version": "0.1.0",
-  "homepage": "https://nstelmach.github.io/Calculator-React-App",
+  "homepage": "https://nstelmach.github.io/Calculator",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
