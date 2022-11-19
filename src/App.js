@@ -8,7 +8,7 @@ import classes from "./components/Button.module.css";
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const operators = ["/", "*", "+", "-"];
 const operatorWithoutMinus = ["/", "*", "+"];
-const twoOperators = ["+-", "--", "*", "/-"];
+const twoOperators = ["+-", "--", "*-", "/-"];
 
 function App() {
   const [equationChain, setEquationChain] = useState("");
@@ -57,11 +57,11 @@ function App() {
       if (prevState.includes(".") && value === ".") {
         return prevState;
       }
-      if (operatorWithoutMinus.includes(value)) {
+      if (operators.includes(value)) {
         return value;
       }
 
-      if (operatorWithoutMinus.includes(prevState)) {
+      if (operators.includes(prevState)) {
         if (value === ".") {
           return "0.";
         }
@@ -77,6 +77,10 @@ function App() {
       let isOperator = operators.includes(displayValue);
       let isNumber = !isNaN(displayValue);
 
+      if (prevState === "=NaN") {
+        return displayValue;
+      }
+
       if (prevState.includes("=")) {
         if (isOperator) {
           return (
@@ -86,9 +90,7 @@ function App() {
         }
         return prevState.concat(displayValue);
       }
-      if (prevState === "=NaN") {
-        return displayValue;
-      }
+
       if (isNumber) {
         if (
           operators.includes(prevState[prevState.length - 2]) &&
